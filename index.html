@@ -2086,7 +2086,7 @@ $("joinBtn").addEventListener("click", () => {
       if (!connected) return;
       playPresenceSound(false);
       $("disconnect").click();
-      setStatus("The host left, so the room closed. Join again to reopen it.");
+      setStatus("You were disconected. This could be because the host disconected, or you need a password to enter the room.");
       $("messageInput").disabled = true;
       $("sendBtn").disabled = true;
       $("imgBtn").disabled = true;
