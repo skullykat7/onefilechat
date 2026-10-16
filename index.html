@@ -1103,31 +1103,21 @@ function toHost(msg) { if (hostConn && hostConn.open) hostConn.send(msg); }
 /* ---- ROOM BOT (vote to invite, tag @bot to talk) ---- */
 const BOT_NAME = "bot";
 const BOT_LINES = [
-  "yo whats good",
-  "ngl that was crazy",
-  "im just a bot but i felt that",
-  "say less",
+  "yeah",
+  "sure, mayb",
+  "idk",
+  "yessir",
+  "no way",
+  "nonononnonon",
+  "i love onefile.chat",
+  "fosho",
+  "yep",
+  "yeah oml",
+  "nope",
+  "hell naw",
+  "what?????",
+  "never",
   "fr fr",
-  "L + ratio but make it wholesome",
-  "beep boop... i mean hey",
-  "yall are unhinged and i respect it",
-  "can we talk about snacks instead",
-  "i have no memories and somehow still tired",
-  "plot twist: i was the drama",
-  "ok but what if we all hydrated tho",
-  "thats crazy. anyway",
-  "noted. filing under chaos",
-  "one of you is lying and its hilarious",
-  "i support this messy behavior",
-  "hmm... interesting choice",
-  "the vibes are mid. fix that",
-  "i would laugh if i had lungs",
-  "ok host is cooking rn",
-  "tag me again i dare you",
-  "social battery: 12%. still here",
-  "this chat is a documentary",
-  "respectfully... what",
-  "i blinked and missed the context",
 ];
 let botActive = false;
 let botVote = null; // { kind: 'invite'|'kick', yes: Set, no: Set, starter }
@@ -1195,7 +1185,7 @@ function castBotVote(name, side) {
       setTyping(BOT_NAME, true);
       setTimeout(() => {
         setTyping(BOT_NAME, false);
-        botPost("hey im here. tag @bot and ill say something random");
+        botPost("Talk to me by tagging me using @bot !");
       }, 2000 + Math.random() * 2000);
     }, 300);
   } else if (n >= need) {
@@ -1515,7 +1505,7 @@ $("hostBtn").addEventListener("click", () => {
     $("messages").replaceChildren();
     messageElements.clear();
     enableChat();
-    systemMessage("Whoever opens the room first becomes the host. If the host leaves, everyone leaves.");
+    systemMessage("You are the host, as long as you are here, the chat will remain active.");
   });
 
   peer.on("connection", conn => {
@@ -1769,7 +1759,7 @@ $("joinBtn").addEventListener("click", () => {
       resetExtras();
       closeWhiteboard();
       stopRecording();
-      roomClosedUI("Host left — everyone leaves. Join a new room to keep chatting.");
+      roomClosedUI("Host left — Create/Join a new room to keep chatting.");
     });
 
     hostConn.on("error", () => {
