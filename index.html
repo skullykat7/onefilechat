@@ -1624,7 +1624,7 @@ $("hostBtn").addEventListener("click", () => {
     conn.on("close", () => {
       const name = conn.displayName || "Someone";
       connections.delete(conn.peer);
-      systemMessage(name + " disconnected.");
+     
       playPresenceSound(false);
       broadcast({ type: "notice", text: name + " disconnected." });
       updatePeople();
